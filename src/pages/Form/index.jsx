@@ -12,23 +12,27 @@ const initialState = {
 export const Form = () => {
   const [state, dispatch] = useReducer(reducerForm, initialState);
 
-  const onUploadImage = useCallback(
+  const onUploadImage = useCallback((e) => {
+    if (e.currentTarget.files) {
+      const file = e.currentTarget.files[0];
+      dispatch({
+        type: FormActionKind.PHOTO,
+        payload: file,
+      });
+    }
+  }, []);
+
+  const handleSubmit = useCallback(
     (e) => {
-      if (e.currentTarget.files !== null) {
-        const file = e.currentTarget.files[0];
-        dispatch({
-          type: FormActionKind.PHOTO,
-          payload: file,
-        });
-      }
+      e.preventDefault();
+      console.log(state);
     },
-    []
+    [state]
   );
 
   return (
-    <form className="formDecoration">
+    <form className="formDecoration" onSubmit={handleSubmit}>
       <h1>Añadir un producto</h1>
-      {console.log(state)}
       <div className="square">
         <InputField
           label="Nombre del producto"
