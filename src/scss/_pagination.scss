@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px 0 10px 0;
+
+    button {
+        color: black;
+        padding: 8px 8px;
+        margin-left: 5px;
+        background-color: white;
+        text-decoration: none;
+        border: 0px;
+    }
+  }
+
+  $breakpoint-tablet: 768px;
+@media (min-width: $breakpoint-tablet) {
+    .pagination {
+        margin: 30px 0 20px 0;
+    
+        button {
+            padding-left:32px;
+            font-size: 24px;
+        }
+      }
+  }
+  

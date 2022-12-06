@@ -1,0 +1,117 @@
+$half: 50%;
+$three-quarters: 75%;
+$full: 100%;
+$ten: 10px;
+
+.formDecoration {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    height: $full;
+
+    h1{
+        text-align: center;
+    }
+
+    .square {
+        width: $half;
+        height: $full;
+        border-radius: 30px;
+        padding: 1rem;
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;  
+        
+        .uploadPhoto {
+            margin-top: $ten*3;
+            margin-left: $ten*2;
+            background-color: white;
+            border: 1px dashed black;
+            padding: 12px 12px;
+            width: $three-quarters;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+
+            i {
+                text-align: center;
+                width: $full;
+                cursor: pointer;
+            }
+
+            label {
+                cursor: pointer;
+            }
+            
+
+            input[type="file"] {
+                display: none;
+            }
+        }
+
+        button {
+            margin-top: $ten*3;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    }
+
+    .inputWithLabel {
+        width: $three-quarters;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;  
+        
+        label {
+            margin: 15px $ten 0 $ten;
+        }
+
+        small{
+            margin-left: $ten;
+            color: red;
+        }
+    
+        input {
+            width: $full;
+            height: 3rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0.5rem;
+            margin: $ten $ten 0 $ten;
+            font-size: 15px;
+
+            &:focus {
+                outline: none;
+                border: 1px solid #000;
+            }
+
+        }
+
+        b {
+            color:red;
+        }
+
+    }
+}
+
+//responsive
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+    .formDecoration {
+        .square {
+            width: $full;
+            height: $full;
+            }
+    }
+}
