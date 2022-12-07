@@ -2,30 +2,29 @@ import { Button } from "../../components/Button";
 import { InputField } from "../../components/InputField";
 import React, { useCallback, useReducer } from "react";
 import { FormActionKind, reducerForm } from "./reducer";
+import { UploadPhoto } from "../../components/UploadButton";
+import { StatusPhoto } from "../../components/StatusPhoto";
 
 const initialState = {
   name: "",
   price: "",
-  photo: "",
+  photo: undefined,
 };
 
 export const Form = () => {
   const [state, dispatch] = useReducer(reducerForm, initialState);
 
-  const onUploadImage = useCallback((e) => {
-    if (e.currentTarget.files) {
-      const file = e.currentTarget.files[0];
-      dispatch({
-        type: FormActionKind.PHOTO,
-        payload: file,
-      });
-    }
-  }, []);
-
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(state);
+      const formData = new FormData();
+      formData.append("name", state.name);
+      formData.append("price", state.price);
+      if (state.photo) formData.append("file", state.photo);
+      fetch("http://localhost:3000/createProduct", {
+        method: "POST",
+        body: formData,
+      });
     },
     [state]
   );
@@ -57,21 +56,15 @@ export const Form = () => {
           required
         />
         <div className="uploadPhoto">
-          <label htmlFor="photo">
-            <i className="fa fa-2x fa-camera"></i>
-            Por favor, seleccione una foto a subir.
-            <input
-              id="photo"
-              type="file"
-              accept="image/jpeg, image/jpg, image/png"
-              onChange={(e) => {
-                dispatch({
-                  type: FormActionKind.PHOTO,
-                  payload: onUploadImage,
-                });
-              }}
+          {!state.photo ? (
+            <UploadPhoto dispatch={dispatch} type={FormActionKind.PHOTO} />
+          ) : (
+            <StatusPhoto
+              dispatch={dispatch}
+              photoName={state.photo.name}
+              type={FormActionKind.PHOTO}
             />
-          </label>
+          )}
         </div>
         <Button type="submit">Enviar</Button>
       </div>
