@@ -53,68 +53,61 @@ const Pagination = ({ range, setPage, page, slice }) => {
   }
 
   return (
-    <>
-      <div>
-        <button onClick={() => checkPreviousPage(page - 1, 1)}>&lt;</button>
+    <div className="pagination">
+      <button onClick={() => checkPreviousPage(page - 1, 1)}>
+        <i className="fa-solid fa-arrow-left"></i>
+      </button>
 
+      <button
+        className={`${page === 1 ? "light-blue" : ""}`}
+        onClick={() =>
+          setPage(() => {
+            return 1;
+          })
+        }
+      >
+        1
+      </button>
+
+      {page > 2 && <button disabled>...</button>}
+
+      {neighbours.map((el, index) => (
         <button
-          className={`${page === 1 ? "blue" : "gray"}`}
+          key={index}
+          className={`${page === el ? "light-blue" : ""}`}
           onClick={() =>
             setPage(() => {
-              return 1;
+              return el;
             })
           }
         >
-          1
+          {el}
         </button>
+      ))}
 
-        {page > 2 && (
-          <button className="gray" disabled>
-            ...
-          </button>
-        )}
+      {page < range.length - 1 && (
+        <button className="" disabled>
+          ...
+        </button>
+      )}
 
-        {neighbours.map((el, index) => (
-          <button
-            key={index}
-            className={`${page === el ? "blue" : "gray"}`}
-            onClick={() =>
-              setPage(() => {
-                return el;
-              })
-            }
-          >
-            {el}
-          </button>
-        ))}
-
-        {page < range.length - 1 && (
-          <button className="gray" disabled>
-            ...
-          </button>
-        )}
-
-        {range.length > 1 && (
-          <button
-            className={`${page === range.length ? "blue" : "gray"}`}
-            onClick={() =>
-              setPage(() => {
-                return range.length;
-              })
-            }
-          >
-            {range.length}
-          </button>
-        )}
-
+      {range.length > 1 && (
         <button
-          className="gray"
-          onClick={() => checkNextPage(page + 1, range.length)}
+          className={`${page === range.length ? "light-blue" : ""}`}
+          onClick={() =>
+            setPage(() => {
+              return range.length;
+            })
+          }
         >
-          &gt;
+          {range.length}
         </button>
-      </div>
-    </>
+      )}
+
+      <button onClick={() => checkNextPage(page + 1, range.length)}>
+        <i className="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
   );
 };
 

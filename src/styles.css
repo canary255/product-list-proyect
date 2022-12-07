@@ -150,29 +150,52 @@ header {
     font-size: 15px;
   }
 }
+.green {
+  background-color: #4CAF50;
+}
+
+.red {
+  background-color: #F44336;
+}
+
+.light-blue {
+  background-color: #a2c5e2;
+}
+
+.blue, .pagination button:hover {
+  background-color: #0d6efd;
+}
+
+.gray {
+  background-color: #cdcdcd;
+}
+
 .pagination {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
   margin: 10px 0 10px 0;
 }
 .pagination button {
-  color: black;
-  padding: 8px 8px;
-  margin-left: 5px;
-  background-color: white;
-  text-decoration: none;
-  border: 0px;
+  padding: 10px 20px 10px 20px;
+  font-size: 16px;
+  border: 1px solid #000;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.pagination button:hover {
+  color: #fff;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .pagination {
-    margin: 30px 0 20px 0;
+    margin: 15px 0 20px 0;
   }
   .pagination button {
-    padding-left: 32px;
-    font-size: 24px;
+    padding: 12px;
+    font-size: 10px;
   }
 }
 .formDecoration {
@@ -266,22 +289,6 @@ header {
     height: 100%;
   }
 }
-.green {
-  background-color: #4CAF50;
-}
-
-.red {
-  background-color: #F44336;
-}
-
-.blue {
-  background-color: #2196F3;
-}
-
-.gray {
-  background-color: #9E9E9E;
-}
-
 .skeletonCard {
   display: flex;
   flex-direction: column;
