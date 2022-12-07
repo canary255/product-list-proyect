@@ -1,16 +1,20 @@
-export const ProductComponent = () => {
+import noPreview from "../../assets/no-preview.jpg";
+import { urlApi } from "../../utils/url/url";
+export const ProductComponent = ({ product }) => {
   return (
     <div className="product">
       <img
-        src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
+        src={product.file === "" ? noPreview : `${urlApi}/${product.file}`}
         alt="Product"
       />
       <button>
-        <i className="fa-solid fa-heart"></i>
+        <i
+          className={product.like ? "fa-solid fa-heart" : "fa-regular fa-heart"}
+        ></i>
       </button>
-      <p className="productName">Treasures Bronze Emperador</p>
+      <p className="productName">{product.name}</p>
       <p className="productPrice">
-        £32.00 / m<sup>2</sup>
+        {product.price}€ / m<sup>2</sup>
       </p>
     </div>
   );

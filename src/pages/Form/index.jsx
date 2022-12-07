@@ -5,6 +5,7 @@ import { FormActionKind, reducerForm } from "./reducer";
 import { UploadPhoto } from "../../components/UploadButton";
 import { StatusPhoto } from "../../components/StatusPhoto";
 import { Navigate } from "react-router-dom";
+import { urlApi } from "../../utils/url/url";
 
 const initialState = {
   name: "",
@@ -23,7 +24,7 @@ export const Form = () => {
       formData.append("name", state.name);
       formData.append("price", state.price);
       if (state.photo) formData.append("file", state.photo);
-      const response = await fetch("http://localhost:3000/createProduct", {
+      const response = await fetch(`${urlApi}/createProduct`, {
         method: "POST",
         body: formData,
       });
