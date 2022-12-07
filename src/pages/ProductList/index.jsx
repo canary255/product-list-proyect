@@ -1,4 +1,15 @@
+import { useEffect } from "react";
+import { SkeletonProduct } from "../../components/SkeletonProduct";
+
 export default function ProductList() {
+  useEffect(() => {
+    document.title = "Product List";
+
+    //get the products from the API
+    fetch("http://localhost:3000/getProduct")
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }, []);
   return (
     <>
       <div className="searchResults">
@@ -29,19 +40,7 @@ export default function ProductList() {
             £32.00 / m<sup>2</sup>
           </p>
         </div>
-        <div className="product">
-          <img
-            src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
-            alt="Product"
-          />
-          <button>
-            <i className="fa-regular fa-heart"></i>
-          </button>
-          <p className="productName">Treasures Bronze Emperador</p>
-          <small className="productPrice">
-            £32.00 / m<sup>2</sup>
-          </small>
-        </div>
+        <SkeletonProduct />
         <div className="product">
           <img
             src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
