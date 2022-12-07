@@ -18,9 +18,6 @@ export const Header = () => {
           <p>Añadir producto</p>
         </Link>
       </div>
-      <div className="icon">
-        <i className="fa-solid fa-magnifying-glass fa-lg"></i>
-      </div>
     </header>
   );
 };
