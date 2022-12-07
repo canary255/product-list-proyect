@@ -1,17 +1,30 @@
 import { useEffect, useState } from "react";
+import Pagination from "../../components/Pagination";
 import { ProductComponent } from "../../components/ProductComponent";
 import { SkeletonProduct } from "../../components/SkeletonProduct";
+import useTable from "../../hooks/useTable";
 
 export default function ProductList() {
-  const url = "http://localhost:3000";
+  const url = "http://localhost:4153";
   const [products, setProducts] = useState();
+  const ELEMENTS_FOR_PAGE = 6;
+  const [page, setPage] = useState(1);
+  const { slice, range } = useTable(products, page, ELEMENTS_FOR_PAGE);
+
   useEffect(() => {
+    async function getProduct() {
+      //get the products from the API
+      await new Promise((r) => setTimeout(r, 2000));
+      const response = await fetch(`${url}/getProduct`);
+      const json = await response.json();
+      setProducts(() => {
+        return json;
+      });
+      console.log(json);
+    }
     document.title = "Product List";
 
-    //get the products from the API
-    fetch(`${url}/getProduct`)
-      .then((response) => response.json())
-      .then((json) => setProducts(json));
+    getProduct();
   }, []);
 
   return (
@@ -41,20 +54,13 @@ export default function ProductList() {
             <SkeletonProduct />
           </>
         ) : (
-          products.map((product, i) => {
+          slice.map((product, i) => {
             return <ProductComponent key={i} />;
           })
         )}
       </div>
       <div className="pagination">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>
-          <i className="fa-solid fa-arrow-right"></i>
-        </button>
+        <Pagination range={range} slice={slice} setPage={setPage} page={page} />
       </div>
     </>
   );

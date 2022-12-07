@@ -274,6 +274,14 @@ header {
   background-color: #F44336;
 }
 
+.blue {
+  background-color: #2196F3;
+}
+
+.gray {
+  background-color: #9E9E9E;
+}
+
 .skeletonCard {
   display: flex;
   flex-direction: column;
