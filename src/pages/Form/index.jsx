@@ -30,6 +30,7 @@ export const Form = () => {
       if (response.ok) {
         //wait for 1 sec
         await new Promise((resolve) => setTimeout(resolve, 1000));
+        alert("Producto añadido correctamente");
         setRedirect(true);
       }
     },
