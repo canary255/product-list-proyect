@@ -1,9 +1,10 @@
 import { Button } from "../../components/Button";
 import { InputField } from "../../components/InputField";
-import React, { useCallback, useReducer } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import { FormActionKind, reducerForm } from "./reducer";
 import { UploadPhoto } from "../../components/UploadButton";
 import { StatusPhoto } from "../../components/StatusPhoto";
+import { Navigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -13,21 +14,31 @@ const initialState = {
 
 export const Form = () => {
   const [state, dispatch] = useReducer(reducerForm, initialState);
+  const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
       const formData = new FormData();
       formData.append("name", state.name);
       formData.append("price", state.price);
       if (state.photo) formData.append("file", state.photo);
-      fetch("http://localhost:3000/createProduct", {
+      const response = await fetch("http://localhost:3000/createProduct", {
         method: "POST",
         body: formData,
       });
+      if (response.ok) {
+        //wait for 1 sec
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setRedirect(true);
+      }
     },
     [state]
   );
+
+  if (redirect) {
+    return <Navigate replace to="/" />;
+  }
 
   return (
     <form className="formDecoration" onSubmit={handleSubmit}>

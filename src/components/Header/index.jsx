@@ -13,7 +13,10 @@ export const Header = () => {
         </Link>
       </div>
       <div className="icon">
-        <i className="fa-regular fa-user fa-lg"></i>
+        <Link to="/crearProducto">
+          <i className="fa-regular fa-plus fa-xl"></i>
+          <p>Añadir producto</p>
+        </Link>
       </div>
       <div className="icon">
         <i className="fa-solid fa-magnifying-glass fa-lg"></i>

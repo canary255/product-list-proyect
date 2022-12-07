@@ -3,7 +3,6 @@ $three-quarters: 75%;
 $full: 100%;
 $ten: 10px;
 
-$green: #4CAF50;
 $red: #f44336;
 
 .formDecoration {
@@ -54,14 +53,6 @@ $red: #f44336;
             input[type="file"] {
                 display: none;
             }
-        }
-
-        .green {
-            background-color: $green;
-        }
-
-        .red {
-            background-color: $red;
         }
 
         button {

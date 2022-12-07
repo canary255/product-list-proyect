@@ -6,11 +6,8 @@ header{
     border-bottom: 1px solid #ccc;
     margin-bottom: 30px;
 
-    i {
-        margin: 0 1rem;
-    }
-    
 
+    
   }
 
 .title{
@@ -19,11 +16,26 @@ header{
   
 .icon{
     width:25%;
-    border-left: 1px solid #ccc;
     height: 100%;
+    border-left: 1px solid #ccc;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    a {
+        text-align: center;
+        width: 100%;
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 10px;
+    }
+
 }
 
 .logoFlat {
@@ -38,5 +50,8 @@ $breakpoint-mobile: 480px;
     .logoFlat {
         max-width: 150px;
         max-height: 45px;
+    }
+    .icon {
+        font-size: 12px;
     }
   }

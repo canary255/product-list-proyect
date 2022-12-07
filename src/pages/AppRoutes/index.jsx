@@ -6,7 +6,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<ProductList />} />
-      <Route path="/crear" element={<Form />} />
+      <Route path="/crearProducto" element={<Form />} />
       <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );

@@ -6,9 +6,6 @@ header {
   border-bottom: 1px solid #ccc;
   margin-bottom: 30px;
 }
-header i {
-  margin: 0 1rem;
-}
 
 .title {
   width: 50%;
@@ -16,11 +13,23 @@ header i {
 
 .icon {
   width: 25%;
-  border-left: 1px solid #ccc;
   height: 100%;
+  border-left: 1px solid #ccc;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.icon a {
+  text-align: center;
+  width: 100%;
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+.icon p {
+  text-align: center;
+  margin-top: 10px;
 }
 
 .logoFlat {
@@ -32,6 +41,9 @@ header i {
   .logoFlat {
     max-width: 150px;
     max-height: 45px;
+  }
+  .icon {
+    font-size: 12px;
   }
 }
 .searchResults {
@@ -207,12 +219,6 @@ header i {
 .formDecoration .square .uploadPhoto input[type=file] {
   display: none;
 }
-.formDecoration .square .green {
-  background-color: #4CAF50;
-}
-.formDecoration .square .red {
-  background-color: #f44336;
-}
 .formDecoration .square button {
   margin-top: 30px;
   border: none;
@@ -260,6 +266,14 @@ header i {
     height: 100%;
   }
 }
+.green {
+  background-color: #4CAF50;
+}
+
+.red {
+  background-color: #F44336;
+}
+
 * {
   margin: 0;
   padding: 0;
