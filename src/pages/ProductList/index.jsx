@@ -1,15 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ProductComponent } from "../../components/ProductComponent";
 import { SkeletonProduct } from "../../components/SkeletonProduct";
 
 export default function ProductList() {
+  const url = "http://localhost:3000";
+  const [products, setProducts] = useState();
   useEffect(() => {
     document.title = "Product List";
 
     //get the products from the API
-    fetch("http://localhost:3000/getProduct")
+    fetch(`${url}/getProduct`)
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => setProducts(json));
   }, []);
+
   return (
     <>
       <div className="searchResults">
@@ -27,72 +31,20 @@ export default function ProductList() {
         </select>
       </div>
       <div className="productList">
-        <div className="product">
-          <img
-            src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
-            alt="Product"
-          />
-          <button>
-            <i className="fa-solid fa-heart"></i>
-          </button>
-          <p className="productName">Treasures Bronze Emperador</p>
-          <p className="productPrice">
-            £32.00 / m<sup>2</sup>
-          </p>
-        </div>
-        <SkeletonProduct />
-        <div className="product">
-          <img
-            src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
-            alt="Product"
-          />
-          <button>
-            <i className="fa-regular fa-heart"></i>
-          </button>
-          <p className="productName">Treasures Bronze Emperador</p>
-          <small className="productPrice">
-            £32.00 / m<sup>2</sup>
-          </small>
-        </div>
-        <div className="product">
-          <img
-            src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
-            alt="Product"
-          />
-          <button>
-            <i className="fa-regular fa-heart"></i>
-          </button>
-          <p className="productName">Treasures Bronze Emperador</p>
-          <small className="productPrice">
-            £32.00 / m<sup>2</sup>
-          </small>
-        </div>
-        <div className="product">
-          <img
-            src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
-            alt="Product"
-          />
-          <button>
-            <i className="fa-regular fa-heart"></i>
-          </button>
-          <p className="productName">Treasures Bronze Emperador</p>
-          <small className="productPrice">
-            £32.00 / m<sup>2</sup>
-          </small>
-        </div>
-        <div className="product">
-          <img
-            src="https://st.depositphotos.com/1927453/2769/i/600/depositphotos_27698015-stock-photo-bathroom.jpg"
-            alt="Product"
-          />
-          <button>
-            <i className="fa-regular fa-heart"></i>
-          </button>
-          <p className="productName">Treasures Bronze Emperador</p>
-          <small className="productPrice">
-            £32.00 / m<sup>2</sup>
-          </small>
-        </div>
+        {!products ? (
+          <>
+            <SkeletonProduct />
+            <SkeletonProduct />
+            <SkeletonProduct />
+            <SkeletonProduct />
+            <SkeletonProduct />
+            <SkeletonProduct />
+          </>
+        ) : (
+          products.map((product, i) => {
+            return <ProductComponent key={i} />;
+          })
+        )}
       </div>
       <div className="pagination">
         <button>1</button>

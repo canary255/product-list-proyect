@@ -279,11 +279,12 @@ header {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  margin-top: 40px;
 }
 .skeletonCard .skeletonImage {
   animation: skeleton-loading 1s linear infinite alternate;
   width: 50%;
-  height: 50%;
+  height: 100px;
 }
 .skeletonCard .skeletonProductName {
   animation: skeleton-loading 1s linear infinite alternate;
