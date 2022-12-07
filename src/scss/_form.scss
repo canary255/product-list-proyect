@@ -3,6 +3,9 @@ $three-quarters: 75%;
 $full: 100%;
 $ten: 10px;
 
+$green: #4CAF50;
+$red: #f44336;
+
 .formDecoration {
     display: flex;
     flex-direction: column;
@@ -53,9 +56,16 @@ $ten: 10px;
             }
         }
 
+        .green {
+            background-color: $green;
+        }
+
+        .red {
+            background-color: $red;
+        }
+
         button {
             margin-top: $ten*3;
-            background-color: #4CAF50;
             border: none;
             border-radius: 5px;
             color: white;
@@ -80,7 +90,7 @@ $ten: 10px;
 
         small{
             margin-left: $ten;
-            color: red;
+            color: $red;
         }
     
         input {
@@ -100,7 +110,7 @@ $ten: 10px;
         }
 
         b {
-            color:red;
+            color:$red;
         }
 
     }

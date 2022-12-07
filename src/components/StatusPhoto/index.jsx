@@ -3,9 +3,10 @@ import { Button } from "../Button";
 export const StatusPhoto = ({ photoName, dispatch, type }) => {
   return (
     <label htmlFor="photo">
-      {photoName}
+      <p>{photoName}</p>
       <Button
         type="button"
+        className="red"
         onClick={(e) => {
           dispatch({
             type: type,

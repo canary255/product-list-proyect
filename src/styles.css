@@ -207,9 +207,14 @@ header i {
 .formDecoration .square .uploadPhoto input[type=file] {
   display: none;
 }
+.formDecoration .square .green {
+  background-color: #4CAF50;
+}
+.formDecoration .square .red {
+  background-color: #f44336;
+}
 .formDecoration .square button {
   margin-top: 30px;
-  background-color: #4CAF50;
   border: none;
   border-radius: 5px;
   color: white;
@@ -230,7 +235,7 @@ header i {
 }
 .formDecoration .inputWithLabel small {
   margin-left: 10px;
-  color: red;
+  color: #f44336;
 }
 .formDecoration .inputWithLabel input {
   width: 100%;
@@ -246,7 +251,7 @@ header i {
   border: 1px solid #000;
 }
 .formDecoration .inputWithLabel b {
-  color: red;
+  color: #f44336;
 }
 
 @media (max-width: 768px) {

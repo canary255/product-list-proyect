@@ -66,7 +66,9 @@ export const Form = () => {
             />
           )}
         </div>
-        <Button type="submit">Enviar</Button>
+        <Button className="green" type="submit">
+          Enviar
+        </Button>
       </div>
     </form>
   );
