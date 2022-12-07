@@ -33,6 +33,14 @@ export const Form = () => {
         alert("Producto añadido correctamente");
         setRedirect(true);
       }
+      if (response.status === 400 || response.status === 500) {
+        alert(
+          "Los datos introducidos no son correctos, por favor: \n" +
+            "1. Asegúrate de que el nombre del producto no esté vacío \n" +
+            "2. Asegúrate de que el precio sea un número positivo \n" +
+            "3. Asegúrate de que la foto no sea superior a 2MB"
+        );
+      }
     },
     [state]
   );
