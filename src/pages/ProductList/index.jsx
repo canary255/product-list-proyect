@@ -3,14 +3,14 @@ import { getProductById } from "../../api/getProduct";
 import Pagination from "../../components/Pagination";
 import { ProductComponent } from "../../components/ProductComponent";
 import { SkeletonProduct } from "../../components/SkeletonProduct";
-import useTable from "../../hooks/useTable";
+import usePagination from "../../hooks/usePagination";
 
 export default function ProductList() {
   const [products, setProducts] = useState();
   const [update, setUpdate] = useState(false);
   const ELEMENTS_PER_PAGE = 6;
   const [page, setPage] = useState(1);
-  const { slice, range } = useTable(products, page, ELEMENTS_PER_PAGE);
+  const { slice, range } = usePagination(products, page, ELEMENTS_PER_PAGE);
 
   useEffect(() => {
     const abortController = new AbortController();
