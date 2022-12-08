@@ -44,7 +44,7 @@ export default function ProductList() {
       <div className="searchResults">
         <h2 className="itemColumn itemName">
           {!products
-            ? "Cargando productos."
+            ? "Cargando productos..."
             : `${products.length} producto${letterS} encontrado${letterS}.`}
         </h2>
       </div>
@@ -59,18 +59,15 @@ export default function ProductList() {
             <SkeletonProduct />
           </>
         ) : (
-          slice
-            .slice(0)
-            .reverse()
-            .map((product, i) => {
-              return (
-                <ProductComponent
-                  key={i}
-                  product={product}
-                  setUpdate={setUpdate}
-                />
-              );
-            })
+          slice.map((product, i) => {
+            return (
+              <ProductComponent
+                key={i}
+                product={product}
+                setUpdate={setUpdate}
+              />
+            );
+          })
         )}
       </div>
       <div className="pagination">

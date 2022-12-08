@@ -1,7 +1,7 @@
 .productList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
     margin-top: 15px;
     border-bottom: 1px solid #ccc;
 
@@ -31,6 +31,7 @@
     .productInfo {
         display: flex;
         flex-direction: column; 
+        
 
 
         .fa-solid.fa-heart{
@@ -43,14 +44,13 @@
             margin-top: 5px;
             color: #005254;
             text-align: center;
-            width: 75%;
-            height:100%
         }
 
         .productPrice {
             color: #aaa;
-            margin-top: 15px;
+            margin: 10px 0 10px 0;
             font-size: 11px;
+            text-align: center;
         }
     }
 
@@ -79,6 +79,7 @@ $breakpoint-tablet: 768px;
 
             .productPrice {
                 font-size: 15px;
+                
             }
         }
     }
@@ -87,7 +88,6 @@ $breakpoint-tablet: 768px;
 @media (min-width: $breakpoint-tablet) {
     .productList {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
     }
 
     .product {
