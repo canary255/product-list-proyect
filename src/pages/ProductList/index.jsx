@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getProductById } from "../../api/getProduct";
 import Pagination from "../../components/Pagination";
 import { ProductComponent } from "../../components/ProductComponent";
 import { SkeletonProduct } from "../../components/SkeletonProduct";
@@ -7,24 +8,30 @@ import { urlApi } from "../../utils/url/url";
 
 export default function ProductList() {
   const [products, setProducts] = useState();
+  const [update, setUpdate] = useState(false);
   const ELEMENTS_FOR_PAGE = 6;
   const [page, setPage] = useState(1);
   const { slice, range } = useTable(products, page, ELEMENTS_FOR_PAGE);
 
   useEffect(() => {
+    const abortController = new AbortController();
     async function getProduct() {
-      await new Promise((r) => setTimeout(r, 2000));
-      const response = await fetch(`${urlApi}/getProduct`);
-      const json = await response.json();
+      if (!update) await new Promise((r) => setTimeout(r, 2000));
+      const products = await getProductById(abortController.signal);
       setProducts(() => {
-        return json;
+        return products;
       });
-      console.log(json);
+      setUpdate(() => {
+        return false;
+      });
     }
-    document.title = "Product List";
 
-    getProduct();
-  }, []);
+    getProduct(update);
+
+    return () => {
+      abortController.abort();
+    };
+  }, [update]);
 
   const addPlural = (number) => {
     return number > 1 ? "s" : "";
@@ -53,7 +60,13 @@ export default function ProductList() {
           </>
         ) : (
           slice.map((product, i) => {
-            return <ProductComponent key={i} product={product} />;
+            return (
+              <ProductComponent
+                key={i}
+                product={product}
+                setUpdate={setUpdate}
+              />
+            );
           })
         )}
       </div>

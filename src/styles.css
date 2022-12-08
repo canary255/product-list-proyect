@@ -101,20 +101,25 @@ header {
   height: 100%;
   position: relative;
 }
-.product button {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  border-radius: 100%;
-  height: 25px;
-  width: 25px;
-  border: 0px;
-}
-.product img {
-  width: 90%;
+.product .productImage {
+  width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.product .productName {
+.product .productImage img {
+  max-width: 75%;
+  max-height: 100%;
+}
+.product .productInfo {
+  display: flex;
+  flex-direction: column;
+}
+.product .productInfo .fa-solid.fa-heart {
+  color: red;
+}
+.product .productInfo .productName {
   font-size: 12px;
   font-weight: bold;
   margin-top: 5px;
@@ -123,10 +128,19 @@ header {
   width: 75%;
   height: 100%;
 }
-.product .productPrice {
+.product .productInfo .productPrice {
   color: #aaa;
-  margin: 15px 0 20px 0;
+  margin-top: 15px;
   font-size: 11px;
+}
+.product button {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  border: 0px;
 }
 
 @media (min-width: 1024px) {
@@ -140,14 +154,14 @@ header {
   .product button {
     right: 25%;
   }
-  .product img {
-    width: 50%;
-    height: 100%;
+  .product .productImage img {
+    max-width: 50%;
+    max-height: 100%;
   }
-  .product .productName {
+  .product .productInfo .productName {
     font-size: 18px;
   }
-  .product .productPrice {
+  .product .productInfo .productPrice {
     font-size: 15px;
   }
 }
