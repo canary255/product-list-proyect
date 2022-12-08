@@ -1,0 +1,348 @@
+header {
+  display: flex;
+  width: 100%;
+  height: 4rem;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.title {
+  width: 50%;
+}
+
+.icon {
+  width: 50%;
+  height: 100%;
+  border-left: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.icon a {
+  text-align: center;
+  width: 100%;
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+.icon p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.logoFlat {
+  max-width: 200px;
+  max-height: 70px;
+}
+
+@media (max-width: 480px) {
+  .logoFlat {
+    max-width: 150px;
+    max-height: 45px;
+  }
+  .icon {
+    font-size: 12px;
+  }
+}
+.searchResults {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.searchResults .itemColumn {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+.searchResults .itemFound {
+  font-family: serif;
+  font-size: 20px;
+}
+.searchResults .itemName {
+  color: #555;
+  height: 100px;
+  font-size: 22px;
+  width: 75%;
+}
+
+.boxProduct {
+  display: flex;
+  width: 100%;
+  height: 4rem;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+.boxProduct select {
+  width: 50%;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  border-left: 1px solid #ccc;
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  margin-top: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+.product .productImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product .productImage img {
+  max-width: 75%;
+  max-height: 80%;
+}
+.product .productInfo {
+  display: flex;
+  flex-direction: column;
+}
+.product .productInfo .fa-solid.fa-heart {
+  color: red;
+}
+.product .productInfo .productName {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #005254;
+  text-align: center;
+}
+.product .productInfo .productPrice {
+  color: #aaa;
+  margin: 10px 0 10px 0;
+  font-size: 11px;
+  text-align: center;
+}
+.product button {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  border: 0px;
+}
+
+@media (min-width: 480px) {
+  .productList .productInfo .productName {
+    font-size: 18px;
+  }
+  .productList .productInfo .productPrice {
+    font-size: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .productList {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .product button {
+    right: 25%;
+  }
+  .product .productImage img {
+    max-width: 50%;
+  }
+}
+.green {
+  background-color: #4CAF50;
+}
+
+.red {
+  background-color: #F44336;
+}
+
+.light-blue {
+  background-color: #a2c5e2;
+}
+
+.blue, .pagination button:hover {
+  background-color: #0d6efd;
+}
+
+.gray {
+  background-color: #cdcdcd;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+}
+.pagination button {
+  padding: 10px 20px 10px 20px;
+  font-size: 16px;
+  border: 1px solid #000;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.pagination button:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    margin: 15px 0 20px 0;
+  }
+  .pagination button {
+    padding: 12px;
+    font-size: 10px;
+  }
+}
+.formDecoration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.formDecoration h1 {
+  text-align: center;
+}
+.formDecoration .square {
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formDecoration .square .uploadPhoto {
+  margin-top: 30px;
+  margin-left: 20px;
+  background-color: white;
+  border: 1px dashed black;
+  padding: 12px 12px;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.formDecoration .square .uploadPhoto i {
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+.formDecoration .square .uploadPhoto label {
+  cursor: pointer;
+  text-align: center;
+}
+.formDecoration .square .uploadPhoto input[type=file] {
+  display: none;
+}
+.formDecoration .square button {
+  margin-top: 30px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.formDecoration .inputWithLabel {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+.formDecoration .inputWithLabel label {
+  margin: 15px 10px 0 10px;
+}
+.formDecoration .inputWithLabel small {
+  margin-left: 10px;
+  color: #f44336;
+}
+.formDecoration .inputWithLabel input {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 10px 10px 0 10px;
+  font-size: 15px;
+}
+.formDecoration .inputWithLabel input:focus {
+  outline: none;
+  border: 1px solid #000;
+}
+.formDecoration .inputWithLabel b {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .formDecoration .square {
+    width: 100%;
+    height: 100%;
+  }
+}
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin-top: 40px;
+}
+.skeletonCard .skeletonImage {
+  animation: skeleton-loading 1s linear infinite alternate;
+  width: 50%;
+  height: 100px;
+}
+.skeletonCard .skeletonProductName {
+  animation: skeleton-loading 1s linear infinite alternate;
+  margin-top: 15px;
+  width: 50%;
+  height: 20px;
+}
+.skeletonCard .skeletonProductPrice {
+  animation: skeleton-loading 1s linear infinite alternate;
+  margin: 15px 0 20px 0;
+  width: 50%;
+  height: 20px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200deg, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200deg, 20%, 95%);
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+/*# sourceMappingURL=styles.css.map */
