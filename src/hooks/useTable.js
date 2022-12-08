@@ -27,7 +27,9 @@ const useTable = (data, page, rowsPerPage) => {
             const range = calculateRange(data, rowsPerPage);
             setTableRange([...range]);
             
-            const slice = sliceData(data, page, rowsPerPage);
+            //Reverse array here
+            const reverse = data.slice(0).reverse();
+            const slice = sliceData(reverse, page, rowsPerPage);
             setSlice([...slice]);
         } catch (e) {
             setTableRange([])
