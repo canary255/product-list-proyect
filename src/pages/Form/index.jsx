@@ -6,6 +6,7 @@ import { UploadPhoto } from "../../components/UploadButton";
 import { StatusPhoto } from "../../components/StatusPhoto";
 import { Navigate } from "react-router-dom";
 import { urlApi } from "../../utils/url/url";
+import { addProduct } from "../../api/addProduct";
 
 const initialState = {
   name: "",
@@ -24,10 +25,7 @@ export const Form = () => {
       formData.append("name", state.name);
       formData.append("price", state.price);
       if (state.photo) formData.append("file", state.photo);
-      const response = await fetch(`${urlApi}/createProduct`, {
-        method: "POST",
-        body: formData,
-      });
+      const response = await addProduct(formData);
       if (response.ok) {
         //wait for 1 sec
         await new Promise((resolve) => setTimeout(resolve, 1000));
