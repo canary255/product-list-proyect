@@ -30,7 +30,7 @@ export const ProductComponent = ({ product, setUpdate }) => {
           <i
             className={`${
               product.like ? "fa-solid" : "fa-regular"
-            }  fa-heart fa-2xl`}
+            }  fa-heart fa-lg`}
           ></i>
         </button>
       </div>

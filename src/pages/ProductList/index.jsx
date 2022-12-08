@@ -34,7 +34,7 @@ export default function ProductList() {
   }, [update]);
 
   const addPlural = (number) => {
-    return number > 1 ? "s" : "";
+    return number !== 1 ? "s" : "";
   };
 
   const letterS = addPlural(products?.length);
@@ -44,8 +44,8 @@ export default function ProductList() {
       <div className="searchResults">
         <h2 className="itemColumn itemName">
           {!products
-            ? "Buscando elementos."
-            : `${products.length} resultado${letterS} encontrado${letterS}.`}
+            ? "Cargando productos."
+            : `${products.length} producto${letterS} encontrado${letterS}.`}
         </h2>
       </div>
       <div className="productList">
@@ -59,15 +59,18 @@ export default function ProductList() {
             <SkeletonProduct />
           </>
         ) : (
-          slice.map((product, i) => {
-            return (
-              <ProductComponent
-                key={i}
-                product={product}
-                setUpdate={setUpdate}
-              />
-            );
-          })
+          slice
+            .slice(0)
+            .reverse()
+            .map((product, i) => {
+              return (
+                <ProductComponent
+                  key={i}
+                  product={product}
+                  setUpdate={setUpdate}
+                />
+              );
+            })
         )}
       </div>
       <div className="pagination">

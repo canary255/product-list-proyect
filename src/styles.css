@@ -110,7 +110,7 @@ header {
 }
 .product .productImage img {
   max-width: 75%;
-  max-height: 100%;
+  max-height: 80%;
 }
 .product .productInfo {
   display: flex;
@@ -138,31 +138,29 @@ header {
   top: 5px;
   right: 15px;
   border-radius: 100%;
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   border: 0px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 480px) {
+  .productList .productInfo .productName {
+    font-size: 18px;
+  }
+  .productList .productInfo .productPrice {
+    font-size: 15px;
+  }
+}
+@media (min-width: 768px) {
   .productList {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    margin-top: 15px;
-    border-bottom: 1px solid #ccc;
   }
   .product button {
     right: 25%;
   }
   .product .productImage img {
     max-width: 50%;
-    max-height: 100%;
-  }
-  .product .productInfo .productName {
-    font-size: 18px;
-  }
-  .product .productInfo .productPrice {
-    font-size: 15px;
   }
 }
 .green {
