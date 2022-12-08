@@ -19,9 +19,7 @@ export const ProductComponent = ({ product, setUpdate }) => {
       </div>
       <div className="productInfo">
         <p className="productName">{product.name}</p>
-        <p className="productPrice">
-          {product.price}€ / m<sup>2</sup>
-        </p>
+        <p className="productPrice">{product.price} €</p>
         <button
           onClick={() => {
             likeDislikeButton(product.id);

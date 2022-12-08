@@ -4,7 +4,6 @@ import Pagination from "../../components/Pagination";
 import { ProductComponent } from "../../components/ProductComponent";
 import { SkeletonProduct } from "../../components/SkeletonProduct";
 import useTable from "../../hooks/useTable";
-import { urlApi } from "../../utils/url/url";
 
 export default function ProductList() {
   const [products, setProducts] = useState();
