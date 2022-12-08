@@ -9,9 +9,9 @@ import { urlApi } from "../../utils/url/url";
 export default function ProductList() {
   const [products, setProducts] = useState();
   const [update, setUpdate] = useState(false);
-  const ELEMENTS_FOR_PAGE = 6;
+  const ELEMENTS_PER_PAGE = 6;
   const [page, setPage] = useState(1);
-  const { slice, range } = useTable(products, page, ELEMENTS_FOR_PAGE);
+  const { slice, range } = useTable(products, page, ELEMENTS_PER_PAGE);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -37,7 +37,7 @@ export default function ProductList() {
     return number !== 1 ? "s" : "";
   };
 
-  const letterS = addPlural(products?.length);
+  const plural = addPlural(products?.length);
 
   return (
     <>
@@ -45,7 +45,7 @@ export default function ProductList() {
         <h2 className="itemColumn itemName">
           {!products
             ? "Cargando productos..."
-            : `${products.length} producto${letterS} encontrado${letterS}.`}
+            : `${products.length} producto${plural} encontrado${plural}.`}
         </h2>
       </div>
       <div className="productList">
