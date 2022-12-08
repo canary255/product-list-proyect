@@ -1,7 +1,7 @@
 .productList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     margin-top: 15px;
     border-bottom: 1px solid #ccc;
 
@@ -88,6 +88,7 @@ $breakpoint-tablet: 768px;
 @media (min-width: $breakpoint-tablet) {
     .productList {
         grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
 
     .product {
